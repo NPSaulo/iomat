@@ -29,7 +29,7 @@ def baixar_ler_diário(edicao):
             texto += pagina.extract_text() + "\n\n"
 
 
-        aposentar_pattern = r"(?i)ATO N\..*?aposentar.*?MAURO MENDES"
+        aposentar_pattern = r"(?s)ATO\s*N[º\.]\.?\s*\d+/\d+.*?(?:Aposentar|aposentar).*?MAURO\s*MENDES(?:\s*Governador do Estado)?(?:\s*\(Assinado digitalmente\))?"
         matches = re.findall(aposentar_pattern, texto, re.IGNORECASE | re.DOTALL)
         # Retornando as informações desejadas
         return {
